@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
-// https://astro.build/config
 export default defineConfig({
+  site: 'https://ayushmandas62-cloud.github.io',
+  base: '/just-trying/',
   integrations: [tailwind()],
-  site: 'https://ayushman.dev',
 });
