@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+// Featured projects data
+const featuredProjects = [
+  {
+    title: 'Water Distribution Business',
+    description: 'A scalable water delivery service connecting rural communities with clean water suppliers. Implemented route optimization and inventory management.',
+    tags: ['Business', 'Logistics', 'Community'],
+    url: '#',
+    featured: true,
+  },
+  {
+    title: 'AI Automation Tools',
+    description: 'Custom AI solutions for small businesses to automate repetitive tasks. Includes chatbots, data processing, and workflow automation.',
+    tags: ['AI', 'Automation', 'SaaS'],
+    url: '#',
+    featured: true,
+  },
+  {
+    title: 'Local Business Marketing',
+    description: 'Experimenting with grassroots marketing strategies for local businesses. Testing combinations of social media, SEO, and community outreach.',
+    tags: ['Marketing', 'Local SEO', 'Experiments'],
+    url: '#',
+    featured: true,
+  },
+];
+---
+
+<Layout title="Ayushman - Business, AI, Marketing, Startups">
+  <Navbar />
+
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-6 py-20 md:py-32">
+      <div class="space-y-6">
+        <!-- Intro label -->
+        <p class="text-muted text-sm font-medium tracking-wide uppercase">
+          Hello, I'm
+        </p>
+
+        <!-- Name -->
+        <h1 class="text-4xl md:text-6xl font-bold text-text">
+          Ayushman
+        </h1>
+
+        <!-- Tagline -->
+        <p class="text-xl md:text-2xl text-muted max-w-2xl leading-relaxed">
+          I build businesses, not just websites.
+           Helping brands grow using AI, marketing, and smart systems.
+        </p>
+
+        <!-- Short bio -->
+        <p class="text-muted max-w-xl leading-relaxed">
+          I'm passionate about startups, technology, and creating value through
+          innovative solutions. This is my space to share projects, ideas, and
+          experiments.
+        </p>
+
+        <!-- CTA buttons -->
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a
+            href="/projects"
+            class="px-6 py-3 bg-text text-background font-medium rounded-lg hover:bg-muted transition-colors"
+          >
+            View My Work
+          </a>
+          <a
+            href="/about"
+            class="px-6 py-3 border border-border text-text font-medium rounded-lg hover:border-muted transition-colors"
+          >
+            Work With Me
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="max-w-4xl mx-auto px-6 py-16 border-t border-border">
+      <div class="mb-10">
+        <h2 class="text-2xl font-bold text-text mb-2">Featured Projects</h2>
+        <p class="text-muted">A selection of my recent work and experiments.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {featuredProjects.map((project) => (
+          <ProjectCard {...project} />
+        ))}
+      </div>
+
+      <!-- View all link -->
+      <div class="mt-10 text-center">
+        <a
+          href="/projects"
+          class="text-muted hover:text-text transition-colors"
+        >
+          View all projects &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="max-w-4xl mx-auto px-6 py-16 border-t border-border">
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Content link -->
+        <a
+          href="/content"
+          class="p-6 rounded-xl border border-border hover:border-muted transition-all group"
+        >
+          <h3 class="text-lg font-semibold text-text mb-2 group-hover:text-muted transition-colors">
+            Blog & Notes
+          </h3>
+          <p class="text-sm text-muted">
+            Thoughts on business, AI, marketing, and startup ideas.
+          </p>
+        </a>
+
+        <!-- About link -->
+        <a
+          href="/about"
+          class="p-6 rounded-xl border border-border hover:border-muted transition-all group"
+        >
+          <h3 class="text-lg font-semibold text-text mb-2 group-hover:text-muted transition-colors">
+            About
+          </h3>
+          <p class="text-sm text-muted">
+            Learn more about my background, skills, and experience.
+          </p>
+        </a>
+
+        <!-- Contact link -->
+        <a
+          href="/contact"
+          class="p-6 rounded-xl border border-border hover:border-muted transition-all group"
+        >
+          <h3 class="text-lg font-semibold text-text mb-2 group-hover:text-muted transition-colors">
+            Get in Touch
+          </h3>
+          <p class="text-sm text-muted">
+            Connect with me on social media or send an email.
+          </p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

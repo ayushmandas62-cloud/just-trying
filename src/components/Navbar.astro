@@ -1,0 +1,95 @@
+---
+// Navbar Component - Navigation links for the site
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Content', href: '/content' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
+];
+
+// Get current path to highlight active link
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+  <nav class="max-w-4xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo / Site Name -->
+      <a href="/" class="text-xl font-semibold text-text hover:text-muted transition-colors">
+        Ayushman
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={`text-sm font-medium transition-colors ${
+                currentPath === link.href
+                  ? 'text-text'
+                  : 'text-muted hover:text-text'
+              }`}
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-muted hover:text-text transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <ul
+      id="mobile-menu"
+      class="hidden md:hidden mt-4 pb-4 space-y-4"
+    >
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class={`block text-sm font-medium transition-colors ${
+              currentPath === link.href
+                ? 'text-text'
+                : 'text-muted hover:text-text'
+            }`}
+          >
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  // Toggle mobile menu
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>
