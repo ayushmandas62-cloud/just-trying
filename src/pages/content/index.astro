@@ -6,42 +6,36 @@ import ContentCard from '../../components/ContentCard.astro';
 
 // Get all markdown files from content folder
 const allContent = [
-  {
-    title: 'Why I Started Building in Public',
-    description: "My journey and reasons for sharing work openly on the internet.",
-    pubDate: new Date('2026-03-15'),
-    slug: 'building-in-public',
-    tags: ['Personal', 'Strategy'],
-  },
-  {
-    title: 'AI Tools for Small Business Automation',
-    description: "A practical guide to implementing AI automation in your small business without breaking the bank.",
-    pubDate: new Date('2026-03-10'),
-    slug: 'ai-tools-small-business',
-    tags: ['AI', 'Business', 'Automation'],
-  },
-  {
-    title: 'Local Marketing Experiments - Month 1',
-    description: "First month results from testing various local marketing strategies for small businesses.",
-    pubDate: new Date('2026-03-01'),
-    slug: 'local-marketing-month-1',
-    tags: ['Marketing', 'Experiments'],
-  },
-  {
-    title: 'Lessons from My First Business Failure',
-    description: "What I learned from my first venture that didn't work out and how it shaped my approach.",
-    pubDate: new Date('2026-02-20'),
-    slug: 'first-business-failure',
-    tags: ['Business', 'Lessons'],
-  },
-  {
-    title: 'The Future of AI in Content Creation',
-    description: "Exploring how AI is changing the landscape of content creation and what it means for creators.",
-    pubDate: new Date('2026-02-15'),
-    slug: 'ai-content-creation',
-    tags: ['AI', 'Content', 'Future'],
-  },
-];
+  
+    {
+    title: "Rice Bowl Guwahati Website",
+    description: "Designed a restaurant website with WhatsApp ordering system to increase direct orders and reduce dependency on Zomato/Swiggy.",
+    pubDate: new Date("2026-03-15"),
+    slug: "rice-bowl",
+    tags: ["Restaurant", "Website", "Conversion"],
+    },
+    {
+    title: "For You Water Distribution Website",
+    description: "Built a business website for a water supply service to generate B2B leads and showcase pricing & delivery model.",
+    pubDate: new Date("2026-03-10"),
+    slug: "water-distribution",
+    tags: ["Business", "Logistics", "Lead Generation"],
+    },
+    {
+    title: "PowerFit Gym Landing Page",
+    description: "Created a high-converting landing page for gym membership signups using WhatsApp CTA.",
+    pubDate: new Date("2026-03-05"),
+    slug: "gym-landing",
+    tags: ["Fitness", "Landing Page", "Conversion"],
+    },
+    {
+    title: "Grand Stay Hotel Website",
+    description: "Designed a hotel website with booking-focused UI to increase direct reservations and reduce OTA commissions.",
+    pubDate: new Date("2026-03-01"),
+    slug: "hotel-website",
+    tags: ["Hotel", "Booking", "Business"],
+    },
+  ];
 
 // Sort by date (newest first)
 allContent.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
@@ -56,10 +50,12 @@ allContent.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
   <main class="flex-1">
     <!-- Page Header -->
     <section class="max-w-4xl mx-auto px-6 py-20 border-b border-border">
-      <h1 class="text-4xl font-bold text-text mb-4">Content</h1>
+      <h1 class="text-4xl font-bold text-text mb-4">
+        Client Website Projects
+      </h1>
+
       <p class="text-muted text-lg max-w-2xl">
-        Blog posts, notes, and ideas exploring business, AI, marketing,
-        and startup adventures.
+      Real website concepts designed to help businesses get more customers and increase conversions.
       </p>
     </section>
 

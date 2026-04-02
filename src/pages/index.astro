@@ -7,25 +7,32 @@ import ProjectCard from '../components/ProjectCard.astro';
 // Featured projects data
 const featuredProjects = [
   {
-    title: 'Water Distribution Business',
-    description: 'A scalable water delivery service connecting rural communities with clean water suppliers. Implemented route optimization and inventory management.',
-    tags: ['Business', 'Logistics', 'Community'],
-    url: '#',
-    featured: true,
+  title: "For You (Water Distribution Business)",
+  description: "Designed a scalable website for a water distribution service connecting suppliers with local businesses.",
+  tags: ["Business", "Logistics"],
+  url: "#",
+  featured: true,
   },
   {
-    title: 'AI Automation Tools',
-    description: 'Custom AI solutions for small businesses to automate repetitive tasks. Includes chatbots, data processing, and workflow automation.',
-    tags: ['AI', 'Automation', 'SaaS'],
-    url: '#',
-    featured: true,
+  title: "Rice Bowl Guwahati (Restaurant Website)",
+  description: "Built a conversion-focused restaurant website with WhatsApp ordering to increase direct orders and reduce dependency on food delivery apps.",
+  tags: ["Business","Restaurant"],
+  url: "#",
+  featured: true,
   },
   {
-    title: 'Local Business Marketing',
-    description: 'Experimenting with grassroots marketing strategies for local businesses. Testing combinations of social media, SEO, and community outreach.',
-    tags: ['Marketing', 'Local SEO', 'Experiments'],
-    url: '#',
-    featured: true,
+  title: "PowerFit Gym (Landing Page)",
+  description: "Created a high-converting landing page for a gym to increase membership signups.",
+  tags: ["Fitness", "Marketing"],
+  url: "#",
+  featured: true,
+  },
+  {
+  title: "Grand Stay Hotel (Website)",
+  description: "Designed a premium hotel website with booking-focused UI to increase direct reservations.",
+  tags: ["Hospitality", "Business"],
+  url: "#",
+  featured: true,
   },
 ];
 ---
@@ -49,15 +56,12 @@ const featuredProjects = [
 
         <!-- Tagline -->
         <p class="text-xl md:text-2xl text-muted max-w-2xl leading-relaxed">
-          I build businesses, not just websites.
-           Helping brands grow using AI, marketing, and smart systems.
+          I design high-converting websites that help businesses get more customers and increase sales.
         </p>
 
         <!-- Short bio -->
         <p class="text-muted max-w-xl leading-relaxed">
-          I'm passionate about startups, technology, and creating value through
-          innovative solutions. This is my space to share projects, ideas, and
-          experiments.
+          I create modern, fast, and conversion-focused websites for restaurants, gyms, hotels, and local businesses.
         </p>
 
         <!-- CTA buttons -->
@@ -72,34 +76,37 @@ const featuredProjects = [
             href="/about"
             class="px-6 py-3 border border-border text-text font-medium rounded-lg hover:border-muted transition-colors"
           >
-            Work With Me
+            Start Your Website
           </a>
         </div>
       </div>
     </section>
 
     <!-- Featured Projects Section -->
-    <section class="max-w-4xl mx-auto px-6 py-16 border-t border-border">
-      <div class="mb-10">
-        <h2 class="text-2xl font-bold text-text mb-2">Featured Projects</h2>
-        <p class="text-muted">A selection of my recent work and experiments.</p>
-      </div>
+    <section class="max-w-4xl mx-auto px-6 py-20 text-center">
+  
+    <h2 class="text-3xl font-bold mb-4">
+    Get More Customers With Your Website🚀
+    </h2>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {featuredProjects.map((project) => (
-          <ProjectCard {...project} />
-        ))}
-      </div>
+    <p class="text-zinc-400 mb-8">
+    Want more customers for your business? I design websites that convert visitors into paying clients.
+    </p>
 
-      <!-- View all link -->
-      <div class="mt-10 text-center">
-        <a
-          href="/projects"
-          class="text-muted hover:text-text transition-colors"
-        >
-          View all projects &rarr;
-        </a>
-      </div>
+    <div class="flex justify-center gap-4 flex-wrap">
+    
+    <a href="https://wa.me/918473819569" target="_blank"
+       class="bg-green-500 text-black px-6 py-3 rounded-lg font-medium hover:bg-green-400 transition">
+      Start Project on WhatsApp
+    </a>
+
+    <a href="mailto:ayushmandas62@gmail.com"
+       class="border border-zinc-600 px-6 py-3 rounded-lg hover:border-zinc-400 transition">
+      Email Me
+    </a>
+
+    </div>
+
     </section>
 
     <!-- Quick Links Section -->
@@ -111,10 +118,10 @@ const featuredProjects = [
           class="p-6 rounded-xl border border-border hover:border-muted transition-all group"
         >
           <h3 class="text-lg font-semibold text-text mb-2 group-hover:text-muted transition-colors">
-            Blog & Notes
+            Client Projects 
           </h3>
           <p class="text-sm text-muted">
-            Thoughts on business, AI, marketing, and startup ideas.
+           Real website projects designed to help businesses get more customers.
           </p>
         </a>
 

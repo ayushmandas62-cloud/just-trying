@@ -3,22 +3,20 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 
-// URL slug parameter
-const { slug } = Astro.params;
-
-// Content data - simulates markdown content stored in memory
-// In production, use Astro's content collections with .md files
-const contentData: Record<string, {
-  title: string;
-  pubDate: Date;
-  tags: string[];
-  content: string;
-}> = {
-  'building-in-public': {
-    title: 'Why I Started Building in Public',
-    pubDate: new Date('2026-03-15'),
-    tags: ['Personal', 'Strategy'],
-    content: `Building in public has become a powerful movement among entrepreneurs and creators. When I first heard about it, I was skeptical - why would anyone share their failures and struggles openly?
+// Required for static site generation - generates paths for all content
+export function getStaticPaths() {
+  // Content data defined here so it's accessible during static generation
+  const contentData: Record<string, {
+    title: string;
+    pubDate: Date;
+    tags: string[];
+    content: string;
+  }> = {
+    'building-in-public': {
+      title: 'Why I Started Building in Public',
+      pubDate: new Date('2026-03-15'),
+      tags: ['Personal', 'Strategy'],
+      content: `Building in public has become a powerful movement among entrepreneurs and creators. When I first heard about it, I was skeptical - why would anyone share their failures and struggles openly?
 
 ## What Changed My Mind
 
@@ -37,12 +35,12 @@ I decided to start sharing my progress weekly, including lessons from failures, 
 ## Looking Forward
 
 This space will evolve as I do. I'm excited to connect with others who are building in public and share this journey together.`,
-  },
-  'ai-tools-small-business': {
-    title: 'AI Tools for Small Business Automation',
-    pubDate: new Date('2026-03-10'),
-    tags: ['AI', 'Business', 'Automation'],
-    content: `Small businesses often struggle with limited resources and time. AI tools can level the playing field, allowing small teams to accomplish what previously required larger staffs.
+    },
+    'ai-tools-small-business': {
+      title: 'AI Tools for Small Business Automation',
+      pubDate: new Date('2026-03-10'),
+      tags: ['AI', 'Business', 'Automation'],
+      content: `Small businesses often struggle with limited resources and time. AI tools can level the playing field, allowing small teams to accomplish what previously required larger staffs.
 
 ## Practical Applications
 
@@ -73,12 +71,12 @@ You don't need to be a tech expert to use AI tools. Start small:
 ## My Experience
 
 I've helped several local businesses implement AI tools with great results. The key is to focus on solving real problems, not just using AI for the sake of it.`,
-  },
-  'local-marketing-month-1': {
-    title: 'Local Marketing Experiments - Month 1',
-    pubDate: new Date('2026-03-01'),
-    tags: ['Marketing', 'Experiments'],
-    content: `I've been running marketing experiments for local businesses to understand what actually works versus what everyone says works.
+    },
+    'local-marketing-month-1': {
+      title: 'Local Marketing Experiments - Month 1',
+      pubDate: new Date('2026-03-01'),
+      tags: ['Marketing', 'Experiments'],
+      content: `I've been running marketing experiments for local businesses to understand what actually works versus what everyone says works.
 
 ## Month 1 Focus Areas
 
@@ -110,12 +108,12 @@ The consistency of showing up mattered more than any single tactic. Reviews have
 ## What's Next
 
 Month 2 will focus on email marketing integration, referral programs, and partnership opportunities.`,
-  },
-  'first-business-failure': {
-    title: 'Lessons from My First Business Failure',
-    pubDate: new Date('2026-02-20'),
-    tags: ['Business', 'Lessons'],
-    content: `Every entrepreneur has a failure story. This is mine.
+    },
+    'first-business-failure': {
+      title: 'Lessons from My First Business Failure',
+      pubDate: new Date('2026-02-20'),
+      tags: ['Business', 'Lessons'],
+      content: `Every entrepreneur has a failure story. This is mine.
 
 In 2018, I launched a digital product that I was convinced would change the way people managed their schedules. I was wrong.
 
@@ -137,12 +135,12 @@ In 2018, I launched a digital product that I was convinced would change the way 
 ## Where I Am Now
 
 That failure taught me more than any success could have. It shaped how I approach every project now - with humility, curiosity, and a willingness to iterate.`,
-  },
-  'ai-content-creation': {
-    title: 'The Future of AI in Content Creation',
-    pubDate: new Date('2026-02-15'),
-    tags: ['AI', 'Content', 'Future'],
-    content: `AI is transforming how content gets created, distributed, and consumed. This isn't science fiction - it's happening now.
+    },
+    'ai-content-creation': {
+      title: 'The Future of AI in Content Creation',
+      pubDate: new Date('2026-02-15'),
+      tags: ['AI', 'Content', 'Future'],
+      content: `AI is transforming how content gets created, distributed, and consumed. This isn't science fiction - it's happening now.
 
 ## Current State
 
@@ -173,15 +171,17 @@ The best content strategy combines AI for efficiency with humans for authenticit
 ## The Future
 
 Within 5 years, AI will be as common in content creation as spell-check is today. The creators who thrive will be those who learn to work with AI, not against it.`,
-  },
-};
+    },
+  };
 
-// Get content by slug, redirect to 404 if not found
-const content = contentData[slug as string];
-
-if (!content) {
-  return Astro.redirect('/404');
+  return Object.keys(contentData).map((slug) => ({
+    params: { slug },
+    props: { content: contentData[slug] },
+  }));
 }
+
+// Get content from props (passed by getStaticPaths)
+const { content } = Astro.props;
 
 // Format the publication date
 const formattedDate = content.pubDate.toLocaleDateString('en-US', {
@@ -254,7 +254,7 @@ function parseContent(text: string): string {
 
       {/* Tags */}
       <div class="flex flex-wrap gap-2 mb-4">
-        {content.tags.map((tag) => (
+        {content.tags.map((tag: string) => (
           <span class="px-3 py-1 text-xs font-medium text-muted bg-surface border border-border rounded-full">
             {tag}
           </span>

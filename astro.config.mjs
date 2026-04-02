@@ -3,6 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://ayushmandas62-cloud.github.io',
-  base: '/just-trying/',
+  base: '/',
   integrations: [tailwind()],
 });
