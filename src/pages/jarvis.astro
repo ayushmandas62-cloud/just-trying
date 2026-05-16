@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Android Jarvis Assistant - Full Product Blueprint" description="Production-ready blueprint for building an Android Jarvis assistant with integrations, orchestration, security, and rollout plan.">
+  <Navbar />
+
+  <main class="flex-1">
+    <section class="max-w-5xl mx-auto px-6 py-16 border-b border-border">
+      <p class="text-sm uppercase tracking-wide text-muted mb-3">Product Blueprint</p>
+      <h1 class="text-4xl md:text-5xl font-bold text-text mb-6">Android “Jarvis” Assistant — Full Application Plan</h1>
+      <p class="text-lg text-muted max-w-4xl">A complete execution-ready architecture based on your research: integrations, Android capabilities, voice stack, multi-model orchestration, memory design, security, and phased delivery.</p>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-6 py-12 space-y-10">
+      <div class="p-6 border border-border rounded-xl">
+        <h2 class="text-2xl font-semibold mb-4">Core Capabilities</h2>
+        <ul class="list-disc pl-6 text-muted space-y-2">
+          <li>Unified inbox + assistant for Gmail/Outlook, Calendar, Contacts, and Drive.</li>
+          <li>Phone actions: call, SMS, notification summarization, reminders and scheduled jobs.</li>
+          <li>Voice-first UX: push-to-talk, streaming STT, actionable confirmations, natural TTS.</li>
+          <li>LLM routing across multiple providers with failover, budgets, and quality policies.</li>
+          <li>Memory layer with private local storage and optional cloud vector retrieval.</li>
+        </ul>
+      </div>
+
+      <div class="p-6 border border-border rounded-xl overflow-x-auto">
+        <h2 class="text-2xl font-semibold mb-4">System Architecture</h2>
+        <pre class="text-sm text-muted"><code>{`flowchart LR
+  A[Android App] --> B[Auth Manager\nGoogle + Microsoft OAuth]
+  A --> C[Voice Layer\nSTT + TTS]
+  A --> D[Action Engine\nCalls/SMS/Notifications/Reminders]
+  A --> E[Conversation UI]
+
+  B --> F[Provider APIs\nGmail/Calendar/People/Drive/Graph]
+  E --> G[Backend Orchestrator]
+  C --> G
+  D --> G
+
+  G --> H[Model Router\nOpenAI/Claude/Gemini/Kimi]
+  G --> I[Memory Service\nEmbeddings + Vector DB]
+  G --> J[Policy & Audit Layer]
+
+  I --> K[(Local Encrypted DB)]
+  I --> L[(Cloud Vector Store)]
+
+  J --> M[Observability\nLogs/Metrics/Tracing]
+  J --> N[Quota + Rate Limits + Abuse Controls]`}</code></pre>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 border border-border rounded-xl">
+          <h3 class="text-xl font-semibold mb-3">Integrations</h3>
+          <ul class="list-disc pl-6 text-muted space-y-2">
+            <li>Gmail: list/read/send with minimal scopes.</li>
+            <li>Calendar: list/create/update events + reminders.</li>
+            <li>People/Contacts: contact resolution for calls/messages.</li>
+            <li>Drive: retrieval for assistant context and attachments.</li>
+            <li>Microsoft Graph parity for Outlook ecosystem users.</li>
+          </ul>
+        </div>
+
+        <div class="p-6 border border-border rounded-xl">
+          <h3 class="text-xl font-semibold mb-3">Android OS Features</h3>
+          <ul class="list-disc pl-6 text-muted space-y-2">
+            <li>NotificationListenerService for inbox-style summarization.</li>
+            <li>ACTION_DIAL/ACTION_CALL flows with explicit confirmations.</li>
+            <li>SEND_SMS handling and fallback composer UI.</li>
+            <li>AlarmManager for exact reminders; WorkManager for sync.</li>
+            <li>Runtime permissions with contextual explanations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="p-6 border border-border rounded-xl">
+        <h2 class="text-2xl font-semibold mb-4">Phased Delivery Timeline</h2>
+        <pre class="text-sm text-muted"><code>{`gantt
+  title Android Jarvis Build Plan
+  dateFormat  YYYY-MM-DD
+  section Foundation
+  Auth + secure token storage           :a1, 2026-05-20, 14d
+  Basic chat + provider setup           :a2, after a1, 10d
+
+  section Integrations
+  Gmail + Calendar + Contacts           :b1, after a2, 18d
+  Graph (Outlook) parity                :b2, after b1, 12d
+
+  section Intelligence
+  Multi-model router + fallback         :c1, after b1, 14d
+  Memory + embeddings + retrieval       :c2, after c1, 12d
+
+  section Voice + Actions
+  STT/TTS pipeline + barge-in UX        :d1, after c1, 12d
+  Calls/SMS/Notifications/Reminders     :d2, after d1, 12d
+
+  section Hardening
+  Security/privacy review + pentest     :e1, after d2, 10d
+  Beta diagnostics + observability      :e2, after e1, 10d`}</code></pre>
+      </div>
+
+      <div class="p-6 border border-border rounded-xl">
+        <h2 class="text-2xl font-semibold mb-4">Non-Negotiable Product Rules</h2>
+        <ul class="list-disc pl-6 text-muted space-y-2">
+          <li>High-risk actions require explicit user confirmation + payload preview.</li>
+          <li>Never ship provider secrets in the APK; keep them server-side only.</li>
+          <li>Default to least-privilege OAuth scopes and just-in-time permissions.</li>
+          <li>All failures must return user-readable fallback messaging and retry options.</li>
+          <li>Every provider/API call must be observable with trace IDs and error taxonomy.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
